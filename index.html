@@ -36,12 +36,12 @@
         
         /* Header Section */
         .header {
-            background: linear-gradient(135deg, #00AA44 0%, #00883B 100%);
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
             color: white;
             padding: 40px 30px;
             border-radius: 20px 20px 0 0;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 170, 68, 0.3);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
         }
         
         .logo {
@@ -66,7 +66,7 @@
             background: white;
             padding: 30px;
             text-align: center;
-            border-bottom: 3px solid #00AA44;
+            border-bottom: 3px solid #66BB6A;
         }
         
         .counter-label {
@@ -78,9 +78,9 @@
         .counter {
             font-size: 4em;
             font-weight: bold;
-            color: #00AA44;
+            color: #66BB6A;
             font-family: 'Courier New', monospace;
-            text-shadow: 2px 2px 4px rgba(0, 170, 68, 0.2);
+            text-shadow: 2px 2px 4px rgba(102, 187, 106, 0.2);
             animation: pulse 2s infinite;
         }
         
@@ -98,14 +98,14 @@
         
         /* Pledge Statement */
         .pledge-statement {
-            background: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+            background: linear-gradient(135deg, #64B5F6 0%, #81C784 100%);
             color: white;
             padding: 35px 30px;
             text-align: center;
             font-size: 1.3em;
             line-height: 1.8;
             font-style: italic;
-            border-left: 5px solid #FFD700;
+            border-left: 5px solid #FFD54F;
             margin: 0;
         }
         
@@ -131,7 +131,7 @@
         }
         
         .form-intro h2 {
-            color: #00AA44;
+            color: #66BB6A;
             font-size: 1.8em;
             margin-bottom: 10px;
         }
@@ -173,8 +173,8 @@
         input:focus,
         select:focus {
             outline: none;
-            border-color: #00AA44;
-            box-shadow: 0 0 0 3px rgba(0, 170, 68, 0.1);
+            border-color: #66BB6A;
+            box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.1);
         }
         
         /* Checkboxes */
@@ -215,7 +215,7 @@
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, #00AA44 0%, #00883B 100%);
+            background: linear-gradient(135deg, #66BB6A 0%, #81C784 100%);
             color: white;
             border: none;
             border-radius: 10px;
@@ -223,12 +223,12 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 170, 68, 0.3);
+            box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
         }
         
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(0, 170, 68, 0.4);
+            box-shadow: 0 7px 20px rgba(102, 187, 106, 0.4);
         }
         
         .submit-btn:active {
@@ -244,7 +244,7 @@
         /* Success Message */
         .success-message {
             display: none;
-            background: linear-gradient(135deg, #00AA44 0%, #00883B 100%);
+            background: linear-gradient(135deg, #66BB6A 0%, #81C784 100%);
             color: white;
             padding: 30px;
             border-radius: 15px;
@@ -348,7 +348,7 @@
         
         .partner-names {
             font-size: 1.1em;
-            color: #00AA44;
+            color: #999999;
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -434,7 +434,7 @@
         <div class="header">
             <div class="logo">🌍♻️🇳🇬</div>
             <h1>CLEAN CITIES, RESILIENT FUTURE</h1>
-            <p class="subtitle">Take the Pledge for a Sustainable Nigeria</p>
+            <p class="subtitle">Take the Pledge for a More Environmentally Resilient Nigeria</p>
         </div>
         
         <!-- Live Counter -->
@@ -457,29 +457,6 @@
             </div>
             
             <form id="pledgeForm">
-                <div class="form-group">
-                    <label for="firstName">First Name <span class="required">*</span></label>
-                    <input type="text" id="firstName" name="firstName" required>
-                    <div class="error-message" id="firstNameError">Please enter your first name</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="lastName">Last Name <span class="required">*</span></label>
-                    <input type="text" id="lastName" name="lastName" required>
-                    <div class="error-message" id="lastNameError">Please enter your last name</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                    <div class="error-message" id="emailError">Please enter a valid email address</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number (Optional)</label>
-                    <input type="tel" id="phone" name="phone" placeholder="080XXXXXXXX">
-                </div>
-                
                 <div class="form-group">
                     <label for="state">State <span class="required">*</span></label>
                     <select id="state" name="state" required>
@@ -525,70 +502,6 @@
                     <div class="error-message" id="stateError">Please select your state</div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="community">Community/LGA (Optional)</label>
-                    <input type="text" id="community" name="community" placeholder="e.g., Surulere, Wuse, etc.">
-                </div>
-                
-                <div class="checkbox-group">
-                    <h3 style="margin-bottom: 15px; color: #00AA44;">I Pledge To:</h3>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="pledge1" name="pledge1">
-                        <label for="pledge1">Sort my waste at home (separating recyclables from other waste)</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="pledge2" name="pledge2">
-                        <label for="pledge2">Stop littering in public spaces</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="pledge3" name="pledge3">
-                        <label for="pledge3">Use reusable bags instead of single-use plastic</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="pledge4" name="pledge4">
-                        <label for="pledge4">Teach my family and neighbors about proper waste management</label>
-                    </div>
-                    
-                    <div class="error-message" id="pledgeError">Please check at least one pledge commitment</div>
-                </div>
-                
-                <div class="form-group">
-                    <label style="margin-bottom: 15px; color: #0066CC; font-size: 1.1em;">Additional Commitment (Optional)</label>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="volunteer" name="volunteer">
-                        <label for="volunteer">I want to volunteer for the June 3-9 cleanup events</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="champion" name="champion">
-                        <label for="champion">I want to become a community waste champion</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="updates" name="updates">
-                        <label for="updates">I want to receive waste management tips via email</label>
-                    </div>
-                </div>
-                
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="displayName" name="displayName">
-                        <label for="displayName">Display my name publicly as a supporter of this initiative</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="consent" name="consent">
-                        <label for="consent">I agree to receive updates about World Environment Day 2026 activities</label>
-                    </div>
-                    
-                    <div class="error-message" id="consentError">You must agree to receive updates</div>
-                </div>
-                
                 <button type="submit" class="submit-btn" id="submitBtn">
                     🖊️ SIGN THE PLEDGE
                 </button>
@@ -601,7 +514,7 @@
                 <p><strong>What's Next:</strong></p>
                 <p>✓ Share this pledge with 5 friends<br>
                    ✓ Mark your calendar: June 3-9, 2026<br>
-                   ✓ Follow #NestléCares for updates</p>
+                   ✓ Follow #SortItForTheCity for updates</p>
                 <p style="margin-top: 20px; font-size: 1.3em;">Together, we're building a sustainable Nigeria! 🇳🇬💚</p>
             </div>
         </div>
@@ -630,8 +543,8 @@
             <p class="partners">This initiative is brought to you by:</p>
             <p class="partner-names">Nestlé Nigeria | National Plastic Action Partnership (NPAP) | African Clean Up Initiative (ACI) | Policy Innovation Centre | Federal Ministry of Environment | FBRA | CEIP | NESREA | AEPB | RAN | SONNEX | ALEF | Swiss Consulate | Kingdom of Netherlands | Waste Africa | Office of SA to Lagos on Circular Economy and Climate Change</p>
             <p style="font-style: italic; margin-bottom: 15px;">Together, building sustainable and resilient cities for all Nigerians</p>
-            <p class="contact">Contact: info.acinigeria@gmail.com | 08033340972</p>
-            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">#NestléCares #PartnershipsForTheEnvironment </p>
+            <p class="contact">Contact: info.acinigeria@gmail.com</p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">#NestléCares #PartnershipsForTheEnvironment</p>
         </div>
     </div>
 
@@ -702,36 +615,14 @@
                 // Validate
                 let isValid = true;
                 
-                // Required fields
-                const requiredFields = ['firstName', 'lastName', 'email', 'state'];
-                requiredFields.forEach(field => {
-                    const input = document.getElementById(field);
-                    if (!input.value.trim()) {
-                        input.classList.add('error');
-                        document.getElementById(field + 'Error').classList.add('show');
-                        isValid = false;
-                    }
-                });
-                
-                // Email validation
-                const email = document.getElementById('email');
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (email.value && !emailRegex.test(email.value)) {
-                    email.classList.add('error');
-                    document.getElementById('emailError').textContent = 'Please enter a valid email address';
-                    document.getElementById('emailError').classList.add('show');
+                // Required field: State only
+                const state = document.getElementById('state');
+                if (!state.value.trim()) {
+                    state.classList.add('error');
+                    document.getElementById('stateError').classList.add('show');
                     isValid = false;
                 }
                 
-                // Pledge checkboxes - at least one must be checked
-                const pledgeBoxes = ['pledge1', 'pledge2', 'pledge3', 'pledge4'];
-                const atLeastOneChecked = pledgeBoxes.some(id => document.getElementById(id).checked);
-                if (!atLeastOneChecked) {
-                    document.getElementById('pledgeError').classList.add('show');
-                    isValid = false;
-                }
-                
-                // Consent is now optional - no validation needed
                 
                 if (!isValid) {
                     return;
@@ -756,21 +647,7 @@
                 // Collect form data
                 const formData = {
                     timestamp: new Date().toISOString(),
-                    firstName: document.getElementById('firstName').value,
-                    lastName: document.getElementById('lastName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value || '',
-                    state: document.getElementById('state').value,
-                    community: document.getElementById('community').value || '',
-                    pledge1: document.getElementById('pledge1').checked,
-                    pledge2: document.getElementById('pledge2').checked,
-                    pledge3: document.getElementById('pledge3').checked,
-                    pledge4: document.getElementById('pledge4').checked,
-                    volunteer: document.getElementById('volunteer').checked,
-                    champion: document.getElementById('champion').checked,
-                    updates: document.getElementById('updates').checked,
-                    displayName: document.getElementById('displayName').checked,
-                    consent: document.getElementById('consent').checked
+                    state: document.getElementById('state').value
                 };
                 
                 // Check if Google Script URL is configured
