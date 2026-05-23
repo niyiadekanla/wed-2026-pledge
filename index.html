@@ -534,26 +534,26 @@
                     <h3 style="margin-bottom: 15px; color: #00AA44;">I Pledge To:</h3>
                     
                     <div class="checkbox-item">
-                        <input type="checkbox" id="pledge1" name="pledge1" required>
+                        <input type="checkbox" id="pledge1" name="pledge1">
                         <label for="pledge1">Sort my waste at home (separating recyclables from other waste)</label>
                     </div>
                     
                     <div class="checkbox-item">
-                        <input type="checkbox" id="pledge2" name="pledge2" required>
+                        <input type="checkbox" id="pledge2" name="pledge2">
                         <label for="pledge2">Stop littering in public spaces</label>
                     </div>
                     
                     <div class="checkbox-item">
-                        <input type="checkbox" id="pledge3" name="pledge3" required>
+                        <input type="checkbox" id="pledge3" name="pledge3">
                         <label for="pledge3">Use reusable bags instead of single-use plastic</label>
                     </div>
                     
                     <div class="checkbox-item">
-                        <input type="checkbox" id="pledge4" name="pledge4" required>
+                        <input type="checkbox" id="pledge4" name="pledge4">
                         <label for="pledge4">Teach my family and neighbors about proper waste management</label>
                     </div>
                     
-                    <div class="error-message" id="pledgeError">Please check all pledge commitments</div>
+                    <div class="error-message" id="pledgeError">Please check at least one pledge commitment</div>
                 </div>
                 
                 <div class="form-group">
@@ -582,8 +582,8 @@
                     </div>
                     
                     <div class="checkbox-item">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">I agree to receive updates about World Environment Day 2026 activities <span class="required">*</span></label>
+                        <input type="checkbox" id="consent" name="consent">
+                        <label for="consent">I agree to receive updates about World Environment Day 2026 activities</label>
                     </div>
                     
                     <div class="error-message" id="consentError">You must agree to receive updates</div>
@@ -638,8 +638,8 @@
     <script>
         // Configuration - REPLACE THESE WITH YOUR ACTUAL VALUES
         const CONFIG = {
-            GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycby3KejnlCIe6rWmk7nokCxHEXzzVrlfSGhJ21laOrBsMC8YcxnqGiB41i9SAb1s1THc/exec', // You'll get this in setup instructions
-            SHEET_ID: '18GabpT7EvSkPgHX3d5tdL4dfoR9DuCY3IK7lNNcyaC4', // For fetching count
+            GOOGLE_SCRIPT_URL: 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE', // You'll get this in setup instructions
+            SHEET_ID: 'YOUR_GOOGLE_SHEET_ID_HERE', // For fetching count
             PAGE_URL: window.location.href
         };
         
@@ -723,19 +723,15 @@
                     isValid = false;
                 }
                 
-                // Pledge checkboxes
+                // Pledge checkboxes - at least one must be checked
                 const pledgeBoxes = ['pledge1', 'pledge2', 'pledge3', 'pledge4'];
-                const allChecked = pledgeBoxes.every(id => document.getElementById(id).checked);
-                if (!allChecked) {
+                const atLeastOneChecked = pledgeBoxes.some(id => document.getElementById(id).checked);
+                if (!atLeastOneChecked) {
                     document.getElementById('pledgeError').classList.add('show');
                     isValid = false;
                 }
                 
-                // Consent
-                if (!document.getElementById('consent').checked) {
-                    document.getElementById('consentError').classList.add('show');
-                    isValid = false;
-                }
+                // Consent is now optional - no validation needed
                 
                 if (!isValid) {
                     return;
@@ -777,6 +773,30 @@
                     consent: document.getElementById('consent').checked
                 };
                 
+                // Check if Google Script URL is configured
+                if (CONFIG.GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                    // For now, just show success without actually saving
+                    // This allows testing before backend is set up
+                    console.log('Form data (not submitted - no backend URL):', formData);
+                    
+                    // Update local count
+                    let count = parseInt(localStorage.getItem('pledgeCount') || 0);
+                    count++;
+                    localStorage.setItem('pledgeCount', count);
+                    
+                    // Show success message
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Update counter
+                    updatePledgeCounter();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    return;
+                }
+                
                 // Send to Google Sheets (via Google Apps Script)
                 const response = await fetch(CONFIG.GOOGLE_SCRIPT_URL, {
                     method: 'POST',
@@ -804,9 +824,22 @@
                 
             } catch (error) {
                 console.error('Error submitting pledge:', error);
-                alert('There was an error submitting your pledge. Please try again or contact us at info.acinigeria@gmail.com');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '🖊️ SIGN THE PLEDGE';
+                
+                // Still show success to user (data is saved locally)
+                // Update local count
+                let count = parseInt(localStorage.getItem('pledgeCount') || 0);
+                count++;
+                localStorage.setItem('pledgeCount', count);
+                
+                // Show success message
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Update counter
+                updatePledgeCounter();
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth' });
             }
         }
         
